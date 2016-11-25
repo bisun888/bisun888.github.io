@@ -33,10 +33,17 @@ scp ivy@192.168.0.0:<file> file #download from server
 ~~~~{linux}
 less XXX.sam #to read sam file quickly
 ~~~~
-1. Download and install miniconda and configure anaconda to install useful tools including bowtie, samtools
+
+
+1. Download and install miniconda and configure anaconda to install useful tools including bowtie, samtools 
+2. Download the indexed RefSeq from the Bowtie page in JHU
 ~~~~{linux}
-less  #to read sam file quickly
+bowtie  -v 3 ./xxx/xxx/hg19 sample.fa test.sam #aligh sample to hg19 with maximum misses to 3
 ~~~~
+
+ -n/--seedmms <int> max mismatches in seed (can be 0-3, default: -n 2)
+-l/--seedlen <int> seed length for -n (default: 28) 25
+-S/--sam           write hits in SAM format
 
 <!-- markdown end -->
 </div>
@@ -47,9 +54,19 @@ less  #to read sam file quickly
 <pre><code class="language-linux">scp file ivy@192.168.0.0 #upload to server
 scp ivy@192.168.0.0:&lt;file&gt; file #download from server
 </code></pre><pre><code class="language-linux">less XXX.sam #to read sam file quickly
-</code></pre>1. Download and install miniconda and configure anaconda to install useful tools including bowtie, samtools
-<pre><code class="language-linux">less  #to read sam file quickly
 </code></pre>
+
+<ol>
+<li>Download and install miniconda and configure anaconda to install useful tools including bowtie, samtools </li>
+<li>Download the indexed RefSeq from the Bowtie page in JHU</li>
+</ol>
+
+<pre><code class="language-linux">bowtie  -v 3 ./xxx/xxx/hg19 sample.fa test.sam #aligh sample to hg19 with maximum misses to 3
+</code></pre>
+
+<p>-n/--seedmms <int> max mismatches in seed (can be 0-3, default: -n 2)
+-l/--seedlen <int> seed length for -n (default: 28) 25
+-S/--sam           write hits in SAM format</int></int></p>
 <!-- content end -->
 </div>
 <br>
