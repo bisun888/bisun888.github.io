@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="Keywords" content="blog"/>
+    <meta name="Description" content="blog"/>
+    <title>Simple</title>
+    <link rel="shortcut icon" href="/static/favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+</head>
+<body>
+<div class="main">
+    <div class="header">
+    	<ul id="pages">
+            <li><a href="/">home</a></li>
+            <li><a href="/#/tags">tags</a></li>
+            <li><a href="/#/archive">archive</a></li>
+    	</ul>
+    </div>
+	<div class="wrap-header">
+	<h1>
+    <a href="/" id="title"></a>
+	</h1>
+	</div>
+<div id="md" style="display: none;">
+<!-- markdown -->
+~~~~{python}
+# Hello World program in Python
+dna="AAAACCCGGT"
+dna_t=dna.replace("A","T")
+dna_l=list(dna)
+re=[]
+for i in dna_l:
+    if i == 'A':
+        re.append ('T')
+    if i == 'T':
+        re.append ('A')
+    if i == 'C':
+        re.append ('G')
+    if i == 'G':
+        re.append ('C')
+re.reverse() 
+print(re)
+~~~~
+一个可以做compliment的小program
+/one little program to do compliment
+<!-- markdown end -->
+</div>
+<div class="entry" id="main">
+<!-- content -->
+<p></p><pre class=" language-python"><code class=" language-python"><span class="token comment" spellcheck="true"># Hello World program in Python
+</span>dna<span class="token operator">=</span><span class="token string">"AAAACCCGGT"</span>
+dnat<span class="token operator">=</span>dna<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">"A"</span><span class="token punctuation">,</span><span class="token string">"T"</span><span class="token punctuation">)</span>
+dnal<span class="token operator">=</span>list<span class="token punctuation">(</span>dna<span class="token punctuation">)</span>
+re<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> dna_l<span class="token punctuation">:</span>
+    <span class="token keyword">if</span> i <span class="token operator">==</span> <span class="token string">'A'</span><span class="token punctuation">:</span>
+        re<span class="token punctuation">.</span>append <span class="token punctuation">(</span><span class="token string">'T'</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> i <span class="token operator">==</span> <span class="token string">'T'</span><span class="token punctuation">:</span>
+        re<span class="token punctuation">.</span>append <span class="token punctuation">(</span><span class="token string">'A'</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> i <span class="token operator">==</span> <span class="token string">'C'</span><span class="token punctuation">:</span>
+        re<span class="token punctuation">.</span>append <span class="token punctuation">(</span><span class="token string">'G'</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> i <span class="token operator">==</span> <span class="token string">'G'</span><span class="token punctuation">:</span>
+        re<span class="token punctuation">.</span>append <span class="token punctuation">(</span><span class="token string">'C'</span><span class="token punctuation">)</span>
+re<span class="token punctuation">.</span>reverse<span class="token punctuation">(</span><span class="token punctuation">)</span> 
+<span class="token keyword">print</span><span class="token punctuation">(</span>re<span class="token punctuation">)</span>
+</code></pre>一个可以做compliment的小program
+/one little program to do compliment<p></p>
+<!-- content end -->
+</div>
+<br>
+<br>
+    <div id="disqus_thread"></div>
+	<div class="footer">
+		<p>© Copyright 2014 by isnowfy, Designed by isnowfy</p>
+	</div>
+</div>
+<script src="main.js"></script>
+<script id="content" type="text/mustache">
+    <h1>{{title}}</h1>
+    <div class="tag">
+    {{date}}
+    {{#tags}}
+    <a href="/#/tag/{{name}}">#{{name}}</a>
+    {{/tags}}
+    </div>
+</script>
+<script id="pagesTemplate" type="text/mustache">
+    {{#pages}}
+    <li>
+        <a href="{{path}}">{{title}}</a>
+    </li>
+    {{/pages}}
+</script>
+<script>
+$(document).ready(function() {
+    $.ajax({
+        url: "main.json",
+        type: "GET",
+        dataType: "json",
+        success: function(data) {
+            $("#title").html(data.name);
+            var pagesTemplate = Hogan.compile($("#pagesTemplate").html());
+            var pagesHtml = pagesTemplate.render({"pages": data.pages});
+            $("#pages").append(pagesHtml);
+            //path
+            var path = "compliment.html";
+            //path end
+            var now = 0;
+            for (var i = 0; i < data.posts.length; ++i)
+                if (path == data.posts[i].path)
+                    now = i;
+            var post = data.posts[now];
+            var tmp = post.tags.split(" ");
+            var tags = [];
+            for (var i = 0; i < tmp.length; ++i)
+                if (tmp[i].length > 0)
+                    tags.push({"name": tmp[i]});
+            var contentTemplate = Hogan.compile($("#content").html());
+            var contentHtml = contentTemplate.render({"title": post.title, "tags": tags, "date": post.date});
+            $("#main").prepend(contentHtml);
+            if (data.disqus_shortname.length > 0) {
+                var disqus_shortname = data.disqus_shortname;
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            }
+        }
+    });
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ["\\(", "\\)"]], processEscapes: true}});
+</script>
+</body>
+</html>
