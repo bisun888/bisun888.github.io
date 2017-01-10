@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="Keywords" content="blog"/>
+    <meta name="Description" content="blog"/>
+    <title>Simple</title>
+    <link rel="shortcut icon" href="/static/favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+</head>
+<body>
+<div class="main">
+    <div class="header">
+    	<ul id="pages">
+            <li><a href="/">home</a></li>
+            <li><a href="/#/tags">tags</a></li>
+            <li><a href="/#/archive">archive</a></li>
+    	</ul>
+    </div>
+	<div class="wrap-header">
+	<h1>
+    <a href="/" id="title"></a>
+	</h1>
+	</div>
+<div id="md" style="display: none;">
+<!-- markdown -->
+~~~~{python}
+#count mutation
+dna_1=""
+dna_2=""
+d_1=list(dna_1)
+d_2=list(dna_2)
+n=0
+for i in range(len(d_1)):
+    if d_1[i]==d_2[i]:
+        n+=1
+print(len(d_1)-n)
+~~~~
+very slow code
+
+~~~~{python}
+#mendel
+def f(k,m,n):
+    s=k+m+n
+    d2=(n/s)*((n-1)/(s-1))
+    d3=(m/s)*((m-1)/(s-1))*0.25
+    d4=(n/s)*(m/(s-1))
+    return 1-d2-d3-d4
+print(f(30,17,23))
+~~~~
+
+<!-- markdown end -->
+</div>
+<div class="entry" id="main">
+<!-- content -->
+<pre class=" language-python"><code class=" language-python"><span class="token comment" spellcheck="true">#count mutation
+</span>dna_1<span class="token operator">=</span><span class="token string">""</span>
+dna_2<span class="token operator">=</span><span class="token string">""</span>
+d_1<span class="token operator">=</span>list<span class="token punctuation">(</span>dna_1<span class="token punctuation">)</span>
+d_2<span class="token operator">=</span>list<span class="token punctuation">(</span>dna_2<span class="token punctuation">)</span>
+n<span class="token operator">=</span><span class="token number">0</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>d_1<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> d_1<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span>d_2<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">:</span>
+        n<span class="token operator">+</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>len<span class="token punctuation">(</span>d_1<span class="token punctuation">)</span><span class="token operator">-</span>n<span class="token punctuation">)</span>
+</code></pre>very slow code
+
+<pre class=" language-python"><code class=" language-python"><span class="token comment" spellcheck="true">#mendel
+</span><span class="token keyword">def</span> <span class="token number">f</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span>m<span class="token punctuation">,</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    s<span class="token operator">=</span>k<span class="token operator">+</span>m<span class="token operator">+</span>n
+    <span class="token number">d2</span><span class="token operator">=</span><span class="token punctuation">(</span>n<span class="token operator">/</span>s<span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token punctuation">(</span>n<span class="token number">-1</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span>s<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token number">d3</span><span class="token operator">=</span><span class="token punctuation">(</span>m<span class="token operator">/</span>s<span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token punctuation">(</span>m<span class="token number">-1</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span>s<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">0.25</span>
+    <span class="token number">d4</span><span class="token operator">=</span><span class="token punctuation">(</span>n<span class="token operator">/</span>s<span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>m<span class="token operator">/</span><span class="token punctuation">(</span>s<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token number">1</span><span class="token operator">-</span><span class="token number">d2</span><span class="token operator">-</span><span class="token number">d3</span><span class="token operator">-</span><span class="token number">d4</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">f</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">,</span><span class="token number">17</span><span class="token punctuation">,</span><span class="token number">23</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<!-- content end -->
+</div>
+<br>
+<br>
+    <div id="disqus_thread"></div>
+	<div class="footer">
+		<p>© Copyright 2014 by isnowfy, Designed by isnowfy</p>
+	</div>
+</div>
+<script src="main.js"></script>
+<script id="content" type="text/mustache">
+    <h1>{{title}}</h1>
+    <div class="tag">
+    {{date}}
+    {{#tags}}
+    <a href="/#/tag/{{name}}">#{{name}}</a>
+    {{/tags}}
+    </div>
+</script>
+<script id="pagesTemplate" type="text/mustache">
+    {{#pages}}
+    <li>
+        <a href="{{path}}">{{title}}</a>
+    </li>
+    {{/pages}}
+</script>
+<script>
+$(document).ready(function() {
+    $.ajax({
+        url: "main.json",
+        type: "GET",
+        dataType: "json",
+        success: function(data) {
+            $("#title").html(data.name);
+            var pagesTemplate = Hogan.compile($("#pagesTemplate").html());
+            var pagesHtml = pagesTemplate.render({"pages": data.pages});
+            $("#pages").append(pagesHtml);
+            //path
+            var path = "ex.html";
+            //path end
+            var now = 0;
+            for (var i = 0; i < data.posts.length; ++i)
+                if (path == data.posts[i].path)
+                    now = i;
+            var post = data.posts[now];
+            var tmp = post.tags.split(" ");
+            var tags = [];
+            for (var i = 0; i < tmp.length; ++i)
+                if (tmp[i].length > 0)
+                    tags.push({"name": tmp[i]});
+            var contentTemplate = Hogan.compile($("#content").html());
+            var contentHtml = contentTemplate.render({"title": post.title, "tags": tags, "date": post.date});
+            $("#main").prepend(contentHtml);
+            if (data.disqus_shortname.length > 0) {
+                var disqus_shortname = data.disqus_shortname;
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            }
+        }
+    });
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ["\\(", "\\)"]], processEscapes: true}});
+</script>
+</body>
+</html>
